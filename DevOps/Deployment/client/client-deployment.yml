@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: financial-transact-client
+  labels:
+    app: financial-transact-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: financial-transact-client
+  template:
+    metadata:
+      labels:
+        app: financial-transact-client
+    spec:
+      containers:
+        - name: financial-transact-client
+          image: madhuri1518/frontend_ft
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+      restartPolicy: Always

@@ -1,0 +1,35 @@
+version: '3.1'
+services:
+  user-management:
+    image: student:v1
+    depends_on:
+      - postgresql
+    ports:
+      - "8080:8080"
+    environment:
+      POSTGRES_DB: fareed
+      POSTGRES_USER: fareed
+      POSTGRES_PASSWORD: fareed
+    restart: always
+    networks:
+      - backend
+  postgresql:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    restart: always
+    environment:
+      POSTGRES_DB: fareed
+      POSTGRES_USER: fareed
+      POSTGRES_PASSWORD: fareed
+    volumes:
+      - postgresql-database-data-volume:/var/lib/postgresql/data
+    networks:
+      - backend
+
+volumes:
+  postgresql-database-data-volume:
+
+networks:
+  backend:
+  frontend:

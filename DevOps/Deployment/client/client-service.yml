@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: financial-transact-client
+  labels:
+    app: financial-transact-client
+spec:
+  selector:
+    app: financial-transact-client
+  type: LoadBalancer
+  ports:
+  - name: http-financial-transact
+    port: 3000
+    targetPort: 3000

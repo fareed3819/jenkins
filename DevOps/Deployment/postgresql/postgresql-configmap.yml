@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgresql
+  labels:
+    app: postgresql
+data:
+  POSTGRES_DB: fareed
+  POSTGRES_USER: fareed
+  POSTGRES_PASSWORD: fareed

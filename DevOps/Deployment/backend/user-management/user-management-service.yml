@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: user-management
+  labels:
+    app: user-management
+spec:
+  selector:
+    app: user-management
+  type: NodePort
+  ports:
+  - name: http-user-management
+    port: 8080
+    targetPort: 8080
